@@ -40,7 +40,7 @@ public class RestControlEmploye {
 	@ResponseBody
 	public Employe ajouterEmploye(@RequestBody Employe employe)
 	{
-		iemployeservice.addOrUpdateEmploye(employe);
+		iemployeservice.ajouterEmploye(employe);
 		return employe;
 	}
 	
