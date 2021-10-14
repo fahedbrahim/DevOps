@@ -104,13 +104,11 @@ public class ControllerEmployeImpl  {
 
 	
 	public float getSalaireByEmployeIdJPQL(int employeId) {
-		// TODO Auto-generated method stub
 		return iemployeservice.getSalaireByEmployeIdJPQL(employeId);
 	}
 
 
 	public Double getSalaireMoyenByDepartementId(int departementId) {
-		// TODO Auto-generated method stub
 		return iemployeservice.getSalaireMoyenByDepartementId(departementId);
 	}
 

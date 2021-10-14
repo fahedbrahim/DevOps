@@ -41,7 +41,6 @@ public class EmployeServiceImpl implements IEmployeService {
 		Optional<Employe> value = employeRepository.findById(employeId);
 		if (value.isPresent()) {
 			Employe employe=value.get();
-		//Employe employe = employeRepository.findById(employeId).get();
 		employe.setEmail(email);
 		employeRepository.save(employe);
 		}
@@ -53,11 +52,9 @@ public class EmployeServiceImpl implements IEmployeService {
 		if(value.isPresent())
 		{
 			Departement depManagedEntity=value.get();
-		//Departement depManagedEntity = deptRepoistory.findById(depId).get();
 			Optional<Employe> value1 = employeRepository.findById(employeId);	
 			if(value1.isPresent())
 			{	Employe employeManagedEntity =value1.get();
-				//Employe employeManagedEntity = employeRepository.findById(employeId).get();
 
 		if(depManagedEntity.getEmployes() == null){
 
@@ -77,13 +74,12 @@ public class EmployeServiceImpl implements IEmployeService {
 	if(value.isPresent())
 	{
 		Departement dep =value.get();
-		//Departement dep = deptRepoistory.findById(depId).get();
 
 		int employeNb = dep.getEmployes().size();
 		for(int index = 0; index < employeNb; index++){
 			if(dep.getEmployes().get(index).getId() == employeId){
 				dep.getEmployes().remove(index);
-				break;//a revoir
+				break;
 			}
 		}
 	}
@@ -99,13 +95,11 @@ public class EmployeServiceImpl implements IEmployeService {
 		if(value.isPresent())
 		{
 			Contrat contratManagedEntity =value.get();
-		//Contrat contratManagedEntity = contratRepoistory.findById(contratId).get();
 			Optional<Employe> value1= employeRepository.findById(employeId);
 			if(value1.isPresent())
 			{	
 				
 				Employe employeManagedEntity=value1.get();
-		//Employe employeManagedEntity = employeRepository.findById(employeId).get();
 
 		contratManagedEntity.setEmploye(employeManagedEntity);
 		contratRepoistory.save(contratManagedEntity);
@@ -119,7 +113,6 @@ public class EmployeServiceImpl implements IEmployeService {
 		{
 			Employe employeManagedEntity=value.get();		
 			
-		//Employe employeManagedEntity = employeRepository.findById(employeId).get();
 		return employeManagedEntity.getPrenom();
 	}return null;}
 	
@@ -130,11 +123,6 @@ public class EmployeServiceImpl implements IEmployeService {
 		if(value.isPresent())
 		{
 			Employe employe=value.get();		
-		//Employe employe = employeRepository.findById(employeId).get();
-
-		//Desaffecter l'employe de tous les departements
-		//c'est le bout master qui permet de mettre a jour
-		//la table d'association
 		for(Departement dep : employe.getDepartements()){
 			dep.getEmployes().remove(employe);
 		}
@@ -148,7 +136,6 @@ public class EmployeServiceImpl implements IEmployeService {
 		{
 			Contrat contratManagedEntity= value.get();
 		
-		//Contrat contratManagedEntity = contratRepoistory.findById(contratId).get();
 		contratRepoistory.delete(contratManagedEntity);
 
 	}}
