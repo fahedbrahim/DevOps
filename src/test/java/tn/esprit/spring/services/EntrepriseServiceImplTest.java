@@ -16,7 +16,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import tn.esprit.spring.entities.Entreprise;
 import tn.esprit.spring.repository.EntrepriseRepository;
-import tn.esprit.spring.services.IEntrepriseService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
