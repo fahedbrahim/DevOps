@@ -1,6 +1,7 @@
 package tn.esprit.spring.services;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -51,17 +52,13 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 	}
 	
 	public void affecterDepartementAEntreprise(int depId, int entrepriseId) {
-		//Le bout Master de cette relation N:1 est departement  
-				//donc il faut rajouter l'entreprise a departement 
-				// ==> c'est l'objet departement(le master) qui va mettre a jour l'association
-				//Rappel : la classe qui contient mappedBy represente le bout Slave
-				//Rappel : Dans une relation oneToMany le mappedBy doit etre du cote one.
+	
 		l.info("lancer  la methode affectation departement a entreprise");
 		l.debug("je vais lancer la recherche de l'entreprise par id ");
 		Optional<Entreprise> value = entrepriseRepoistory.findById(entrepriseId);
 		if(value.isPresent())
 		{Entreprise entrepriseManagedEntity = value.get();
-				//Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).get();
+				
 				
 		l.debug("je viens de trouver l'entreprise" + entrepriseManagedEntity);
 		l.debug("je vais lancer la recherche du departement par id ");
@@ -69,7 +66,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 		if(value1.isPresent())
 		{Departement depManagedEntity=value1.get();
 			
-			//	Departement depManagedEntity = deptRepoistory.findById(depId).get();
+			
 			
 		l.debug("je viens de trouver le departement" + depManagedEntity);
 		l.debug("je vais lancer l'update de l'ntreprise et l'enregistré");	
@@ -94,7 +91,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 		if (value.isPresent()) 
 		
 		{Entreprise entrepriseManagedEntity= value.get();
-			//Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).get();
+	
 	
 		l.debug("je viens de trouver l entreprise" +entrepriseManagedEntity);
 		List<String> depNames = new ArrayList<>();
@@ -109,9 +106,9 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 		return depNames;
 		}
 		else
-		{l.debug("l'entreprise n'existe pas");
+		{l.debug("l'entreprise n'existe pass");
 		l.info("fin de   la methode get all department names by entreprise");
-			return null;
+			return Collections.emptyList();
 		}
 	}
 
@@ -127,7 +124,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 			l.debug("je viens de finir la delete entreprise by id");
 			l.info("finb de   la methode delete entreprise by id");	
 		}
-		else {l.debug("l'entreprise n'existe pas");
+		else {l.debug("l'entreprise n'existe passs");
 		l.info("finb de   la methode delete entreprise by id");	
 			
 		}
@@ -159,7 +156,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 		Optional<Entreprise> value = entrepriseRepoistory.findById(entrepriseId);
 		if (value.isPresent()) {
 			Entreprise ent=value.get();
-			//Entreprise ent= entrepriseRepoistory.findById(entrepriseId).get();
+		
 		l.debug("je viens de trouver l'entreprise par id"+ent);
 		l.info("fin de   la methode get entreprise by id");
 		 return ent;
