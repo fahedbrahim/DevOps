@@ -76,7 +76,7 @@
 		    <artifactId>junit</artifactId>
 		    <scope>test</scope>
 		</dependency>
-		<!-- end junit -->
+		<!-- end junit TAZ -->
 		
 
 		<!-- JSF -->
